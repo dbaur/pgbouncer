@@ -1,3 +1,4 @@
+1.12.0-3
 name: ci
 
 on:
@@ -23,6 +24,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: dbaur/pgbouncer:latest
+          tags: dbaur/pgbouncer:1.12.0-3
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
