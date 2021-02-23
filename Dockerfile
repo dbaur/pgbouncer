@@ -6,6 +6,9 @@ RUN set -x \
     && apt-get purge -y --auto-remove \
     && rm -rf /var/lib/apt/lists/*
 
+RUN wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt
+RUN openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out /etc/root.crt
+
 RUN mkdir -p /var/log/postgresql
 RUN chmod -R 755 /var/log/postgresql
 RUN chown -R postgres:postgres /var/log/postgresql
