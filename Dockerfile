@@ -3,6 +3,7 @@ FROM ubuntu:20.04
 RUN set -x \
     && apt-get -qq update \
     && apt-get install -yq --no-install-recommends pgbouncer=1.12.0-3 \
+    && apt-get install -yq --no-install-recommends wget \
     && apt-get purge -y --auto-remove \
     && rm -rf /var/lib/apt/lists/*
 
