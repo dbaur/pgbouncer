@@ -25,6 +25,9 @@ RUN mv DigiCertGlobalRootG3.crt.pem DigiCertGlobalRootG3.crt
 
 RUN cat *.crt >> /etc/root.crt
 
+RUN sed -i '/^$/d' /etc/root.crt
+
+
 RUN mkdir -p /var/log/postgresql
 RUN chmod -R 755 /var/log/postgresql
 RUN chown -R postgres:postgres /var/log/postgresql
